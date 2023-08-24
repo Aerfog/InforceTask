@@ -1,0 +1,24 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "About";
+}
+
+
+@if (User.IsInRole("Administrators"))
+{
+    <form asp-controller="Home" asp-action="About" method="post">
+        <div class="mb-3">
+            <label for="Description" class="form-label"><h1>@ViewData["Title"]</h1></label>
+            <textarea class="form-control" name="TextContent" id="Description" rows="3">@Model</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
+}
+else
+{
+    <div>
+        <h1>@ViewData["Title"]</h1>
+        <p>@Model</p>
+    </div>
+}
