@@ -4,14 +4,32 @@
     ViewData["Title"] = "Urls";
 }
 
-
 <table class="table table-striped table-hover">
     <thead class="table-light">
     <tr>
         @if (User.Identity?.Name is not null)
         {
-            <div>
-                <item-create></item-create>
+            <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Create short url
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <form asp-controller="Urls" asp-action="Create" method="post">
+                        <div class="mb-3">
+                            <label for="FullUrl" class="form-label">
+                                <h1>Full Url</h1>
+                            </label>
+                            <input type="text" class="form-control" name="FullUrl" id="FullUrl">
+                            <label for="Description" class="form-label">
+                                <h1>Descriptions</h1>
+                            </label>
+                            <input type="text" class="form-control" name="Description" id="Description">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                </div>
             </div>
         }
     </tr>
@@ -31,26 +49,26 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullUrl);
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortUrl);
-            </td>
-            @if (User.Identity?.Name is not null)
-            {
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
-                    <item-details item-id="@item.Id"> </item-details>
-                    @if (User.IsInRole("Administrators") || (bool)User.Identity?.Name.Equals(item.CreatedBy))
-                    {
-                        <item-delete item-id="@item.Id"></item-delete>
-                    }
+                    @Html.DisplayFor(modelItem => item.FullUrl);
                 </td>
-            }
-        </tr>
-    }
-    </tbody>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortUrl);
+                </td>
+                @if (User.Identity?.Name is not null)
+                {
+                    <td>
+                        <item-details item-id="item.Id"> </item-details>
+                        @if (User.IsInRole("Administrators") || (bool)User.Identity?.Name.Equals(item.CreatedBy))
+                        {
+                             <item-delete item-id="item.Id"> </item-delete>
+                        }
+                    </td>
+                }
+            </tr>
+        }
+        </tbody>
 </table>

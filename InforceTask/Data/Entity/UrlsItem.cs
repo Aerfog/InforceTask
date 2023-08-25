@@ -2,7 +2,7 @@
 
 public class UrlsItem
 {
-   public UrlsItem(string fullUrl, string shortUrl, string createdBy, DateTime createdDate, string descriptions)
+   public UrlsItem(string fullUrl, string shortUrl, string createdBy, DateTime createdDate, string? descriptions)
    {
       FullUrl = fullUrl;
       ShortUrl = shortUrl;

@@ -13,14 +13,28 @@
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
           <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         </None>
+        <None Include="wwwroot\css\index.css" />
+        <None Include="wwwroot\js\dist\bundle.js" />
+        <None Include="wwwroot\js\dist\C_Repos_InforceTask_InforceTask_ReactForTable_my-react-app_node_modules_web-vitals_dist_web-v-55ba7a.bundle.js" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.9" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.9" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.9" />
+        <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="7.0.10" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9" />
+        <PackageReference Include="TinyURL-LinkShrinker" Version="1.0.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Angular\AngularPart\angular.json" />
+      <_ContentIncludedByDefault Remove="Angular\AngularPart\package-lock.json" />
+      <_ContentIncludedByDefault Remove="Angular\AngularPart\package.json" />
+      <_ContentIncludedByDefault Remove="Angular\AngularPart\tsconfig.app.json" />
+      <_ContentIncludedByDefault Remove="Angular\AngularPart\tsconfig.json" />
+      <_ContentIncludedByDefault Remove="Angular\AngularPart\tsconfig.spec.json" />
     </ItemGroup>
 
 </Project>
