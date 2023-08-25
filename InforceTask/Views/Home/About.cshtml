@@ -22,3 +22,12 @@ else
         <p>@Model</p>
     </div>
 }
+
+@section Scripts {
+    <script>
+        document.getElementById('showToastButton').addEventListener('click', function() {
+            let myToast = new bootstrap.Toast(document.getElementById('myToast'));
+            myToast.show();
+        });
+    </script>
+}

@@ -1,18 +1,48 @@
-﻿@model dynamic
-
+﻿@model InforceTask.Data.Entity.UrlsItem
 @{
-    Layout = null;
+    ViewData["Title"] = "Short URL Info";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
 <div>
-      
+    <h1>@ViewData["Title"]</h1>
+    <div class="card text-dark bg-light mb-3" style="max-width: border-box;">
+        <div class="card-header">
+            <item-list></item-list>
+        </div>
+        <div class="card-body">
+            <div class="mb-3 row">
+                <label class="col-sm-2">Full Url:</label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(m => m.FullUrl)
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">Short Url:</label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(m => m.ShortUrl)
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">Created by:</label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(m => m.CreatedBy)
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">Created date:</label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(m => m.CreatedDate)
+                </div>
+            </div>
+            <div class="mb-3 row">
+                @if (!string.IsNullOrEmpty(Model.Descriptions))
+                {
+                    <label class="col-sm-2">Description:</label>
+                    <div class="col-sm-10">
+                        @Html.DisplayFor(m => m.Descriptions)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
-</body>
-</html>

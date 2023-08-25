@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InforceTask.Controllers;
 
-[Route("[controller]")]
+//[Route("[controller]")]
 public class RolesController : Controller
 {
     private const string AdminRole = "Administrators";

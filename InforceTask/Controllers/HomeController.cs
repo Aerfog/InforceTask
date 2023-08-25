@@ -3,7 +3,6 @@ using InforceTask.Data;
 using Microsoft.AspNetCore.Mvc;
 using InforceTask.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 
 namespace InforceTask.Controllers;
 
@@ -19,17 +18,12 @@ public class HomeController : Controller
         _dbContext = dbContext;
     }
 
-    [Route("/")]
-    public async Task<IActionResult> Index()
-    {
-        return await Task.Run(View);
-    }
-    
     [HttpGet]
     public async Task<IActionResult> About()
     {
         return await Task.Run(() =>
         {
+            _logger.LogInformation("Get:About");
             var aboutData = _dbContext.AboutTextAreaData?.FirstOrDefault();
             var description = string.Empty;
             if (aboutData is not null)
@@ -47,8 +41,9 @@ public class HomeController : Controller
     {
         return await Task.Run(() =>
         {
+            _logger.LogInformation("Post:About");
             var aboutData = _dbContext.AboutTextAreaData?.FirstOrDefault();
-        
+            
             if (aboutData is not null)
             {
                 aboutData.TextContent = model.TextContent;

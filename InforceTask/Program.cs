@@ -1,9 +1,22 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using InforceTask.Data;
-using InforceTask.Models;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
+var dbConnectionString = builder.Configuration.GetConnectionString("DefaultDbConnection") ??
+                         throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+// var ob = new DbContextOptionsBuilder<ShortenerDbContext>();
+// ob.UseSqlite(dbConnectionString);
+// using (var context = new ShortenerDbContext(ob.Options))
+// {
+//     context.Database.EnsureDeleted();
+//     context.SaveChanges();
+//     context.Database.EnsureCreated();
+//     context.SaveChanges();
+// }
 
 // Add services to the container.
 var identityConnectionString = builder.Configuration.GetConnectionString("DefaultIdentityConnection") ??
@@ -12,8 +25,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(identityConnectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-var dbConnectionString = builder.Configuration.GetConnectionString("DefaultDbConnection") ??
-                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContext<ShortenerDbContext>(options =>
     options.UseSqlite(dbConnectionString));
 
@@ -21,6 +33,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
 var app = builder.Build();
 
