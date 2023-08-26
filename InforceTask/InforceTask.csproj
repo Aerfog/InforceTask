@@ -13,9 +13,6 @@
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
           <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         </None>
-        <None Include="wwwroot\css\index.css" />
-        <None Include="wwwroot\js\dist\bundle.js" />
-        <None Include="wwwroot\js\dist\C_Repos_InforceTask_InforceTask_ReactForTable_my-react-app_node_modules_web-vitals_dist_web-v-55ba7a.bundle.js" />
     </ItemGroup>
 
     <ItemGroup>

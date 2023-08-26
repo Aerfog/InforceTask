@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using InforceTask.Data;
+using InforceTask.Data.Entity;
+using InforceTask.Data.Repositories;
+using InforceTask.Models;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -38,6 +41,8 @@ builder.Services.AddSpaStaticFiles(configuration =>
 {
     configuration.RootPath = "/ClientApp";
 });
+builder.Services.AddScoped<IRepository<AboutTextAreaData>, AboutRepository>();
+builder.Services.AddScoped<IRepository<UrlsItem>, UrlsRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
