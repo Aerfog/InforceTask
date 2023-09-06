@@ -2,11 +2,13 @@ using InforceTask.Data.Entity;
 using InforceTask.Data.Repositories;
 using InforceTask.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using TinyURL;
 
 namespace InforceTask.Controllers;
 
+[EnableCors]
 [ApiController]
 [Route("/Urls/Api")]
 public class UrlsApiController : Controller
@@ -21,18 +23,35 @@ public class UrlsApiController : Controller
     }
     
     [HttpGet]
-    public async Task<IActionResult> UrlsTable()
+    public async Task<IActionResult> UrlsTableForGuests()
     {
         var itemList = await _repository.GetAllAsync();
-        _logger.LogInformation("Get:Table");
-        return Ok(itemList);
+        _logger.LogInformation("Get:Api/Table/ForGuests");
+        var urlsWithIdList = itemList.Select(urls => new UrlModel() { Description = urls.Descriptions, FullUrl = urls.FullUrl}).ToList();
+        return new JsonResult(urlsWithIdList);
+    }
+    
+    [Authorize]
+    [HttpGet("/Urls/Api/ForUsers")]
+    public async Task<IActionResult> UrlsTableForUsers()
+    {
+        var itemList = await _repository.GetAllAsync();
+        _logger.LogInformation("Get:Api/Table/ForUsers");
+        var urlsWithIdList = itemList.Select(urls => new UrlModelWithAccess()
+        {
+            Description = urls.Descriptions,
+            FullUrl = urls.FullUrl, 
+            Id = urls.Id,
+            HaveDeleteButton =  (User.IsInRole("Administrators") || (bool)User.Identity?.Name?.Equals(urls.CreatedBy)),
+        }).ToList();
+        return new JsonResult(urlsWithIdList);
     }
 
     [Authorize]
-    [HttpPost()]
+    [HttpPost]
     public async Task<IActionResult> Create(UrlModel model)
     {
-        _logger.LogInformation("Post:Create");
+        _logger.LogInformation("Post:Api/Create");
         if (User.Identity?.Name is null) return Unauthorized();
         var shortUrl = model.FullUrl;
         if (!shortUrl.StartsWith("https://"))
@@ -62,7 +81,7 @@ public class UrlsApiController : Controller
     [HttpPost("{id}")]
     public async Task<IActionResult> Remove(int id)
     {
-        _logger.LogInformation("Get:Remove");
+        _logger.LogInformation("Get:Api/Remove");
         var url = await _repository.GetOneAsync(id);
         if (User.IsInRole("Administrators") ||
             (User.Identity is { Name: not null } &&

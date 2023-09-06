@@ -16,6 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Angular.UI.Bootstrap" Version="2.5.0" />
+        <PackageReference Include="angularjs" Version="1.8.2" />
+        <PackageReference Include="AngularJS.Core" Version="1.8.2" />
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.9" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.9" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.9" />
@@ -32,6 +35,49 @@
       <_ContentIncludedByDefault Remove="Angular\AngularPart\tsconfig.app.json" />
       <_ContentIncludedByDefault Remove="Angular\AngularPart\tsconfig.json" />
       <_ContentIncludedByDefault Remove="Angular\AngularPart\tsconfig.spec.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\asset-manifest.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\logo192.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\logo512.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\manifest.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\robots.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\css\main.e6c13ad2.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\css\main.e6c13ad2.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\js\787.bc7d429a.chunk.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\js\787.bc7d429a.chunk.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\js\main.54cec42a.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\js\main.54cec42a.js.LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\build\static\js\main.54cec42a.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\3rdpartylicenses.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\main.1e8159d5dac5cd34.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\polyfills.a09c9b979cea9413.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\runtime.e8f1f41829bceead.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\styles.ef46db3751d8e999.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\main.876546c67476fea2.js" />
+      <_ContentIncludedByDefault Remove="Views\Urls\Template\ItemList.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ang-proj\main.17134dbbabba1759.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\3rdpartylicenses.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\main.827e7c6f4a627697.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\polyfills.a09c9b979cea9413.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\runtime.e8f1f41829bceead.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\ang-proj\styles.ef46db3751d8e999.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\3rdpartylicenses.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\main.bd36c8de6aeef06a.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\polyfills.ef835bcdfe34ef9c.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\runtime.f9249e79797d1079.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\styles.ef46db3751d8e999.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\main.be509b505019719f.js" />
     </ItemGroup>
+
+
+
+
 
 </Project>

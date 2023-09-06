@@ -1,56 +1,19 @@
-﻿@model IEnumerable<InforceTask.Data.Entity.UrlsItem>
-
+﻿<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="/inforce-task-angular/main.edf3a5e99d5fe35b.js" type="module"></script>
+<script src="/inforce-task-angular/polyfills.ef835bcdfe34ef9c.js" type="module"></script>
+<script src="/inforce-task-angular/runtime.f9249e79797d1079.js" type="module"></script>
 @{
     ViewData["Title"] = "Urls";
 }
 
-<table class="table table-striped table-hover">
-    <thead class="table-light">
-    <tr>
-        @if (User.Identity?.Name is not null)
-        {
-            <app-item-add></app-item-add>
-        }
-    </tr>
-    <tr>
-        <th>
-            Full Url
-        </th>
-        <th>
-            Short Url
-        </th>
-        @if (User.Identity?.Name is not null)
-        {
-            <th>
-                Actions
-            </th>
-        }
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
+<div class="container-fluid">
+    @if (User.Identity?.Name is null)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullUrl);
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortUrl);
-            </td>
-            @if (User.Identity?.Name is not null)
-            {
-                <td>
-                    <item-details item-id="item.Id"> </item-details>
-                    @if (User.IsInRole("Administrators") || (bool)User.Identity?.Name.Equals(item.CreatedBy))
-                    {
-                        <item-delete item-id="item.Id"> </item-delete>
-                    }
-                </td>
-            }
-        </tr>
+        <app-for-guests></app-for-guests>
     }
-    </tbody>
-</table>
-<script src="dist/ang-proj/runtime.e8f1f41829bceead.js" type="module"></script>
-<script src="dist/ang-proj/polyfills.a09c9b979cea9413.js" type="module"></script>
-<script src="dist/ang-proj/main.1e8159d5dac5cd34.js" type="module"></script>
+    else
+    {
+        <app-for-users></app-for-users>
+    }
+</div>
+

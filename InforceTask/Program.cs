@@ -43,6 +43,7 @@ builder.Services.AddSpaStaticFiles(configuration =>
 });
 builder.Services.AddScoped<IRepository<AboutTextAreaData>, AboutRepository>();
 builder.Services.AddScoped<IRepository<UrlsItem>, UrlsRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -62,7 +63,18 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseCors(policyBuilder =>
+{
+    policyBuilder.WithOrigins("http://localhost:4200")
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+});
+app.UseCors(policyBuilder =>
+{
+    policyBuilder.WithOrigins("http://localhost:7008")
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+});
 app.UseAuthorization();
 
 app.MapControllers();
