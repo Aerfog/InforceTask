@@ -74,6 +74,14 @@
       <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\runtime.f9249e79797d1079.js" />
       <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\styles.ef46db3751d8e999.css" />
       <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\main.be509b505019719f.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\inforce-task-angular\main.edf3a5e99d5fe35b.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\3rdpartylicenses.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\main.edf3a5e99d5fe35b.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\polyfills.ef835bcdfe34ef9c.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\runtime.f9249e79797d1079.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\inforce-task-angular\styles.ef46db3751d8e999.css" />
     </ItemGroup>
 
 
